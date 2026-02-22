@@ -6,34 +6,34 @@ function App() {
   const [noticias, setNoticias] = useState([]);
     const [cargando, setCargando] = useState(true);
 
-      useEffect(() => {
-          const cargarNoticias = async () => {
-                // 1. Definir la consulta a la clase 'Noticia' en Back4app
-                      const Noticia = Parse.Object.extend('Noticia');
-                            const query = new Parse.Query(Noticia);
-                                  
-                                        // 2. Ejecutar la consulta
-                                              try {
-                                                      const results = await query.find();
-                                                              
-                                                                      // 3. Transformar los resultados de Parse a objetos simples
-                                                                              const noticiasData = results.map(obj => ({
-                                                                                        id: obj.id,
-                                                                                                  titulo: obj.get('titulo'),
-                                                                                                            resumen: obj.get('resumen'),
-                                                                                                                      activos: obj.get('activos') || [] // Asegura que sea un array
-                                                                                                                              }));
-                                                                                                                                      
-                                                                                                                                              setNoticias(noticiasData);
-                                                                                                                                                      setCargando(false);
-                                                                                                                                                            } catch (error) {
-                                                                                                                                                                    console.error('Error al cargar noticias:', error);
-                                                                                                                                                                            setCargando(false);
-                                                                                                                                                                                  }
-                                                                                                                                                                                      };
+useEffect(() => {
+  const cargarNoticias = async () => {
+    try {
+      const Noticia = Parse.Object.extend('Noticia');
+      const query = new Parse.Query(Noticia);
+      
+      const results = await query.find();
+      console.log('Resultados:', results); // Verás esto en consola
+      
+      const noticiasData = results.map(obj => ({
+        id: obj.id,
+        titulo: obj.get('titulo'),
+        resumen: obj.get('resumen'),
+        activos: obj.get('activos') || []
+      }));
+      
+      setNoticias(noticiasData);
+      setCargando(false);
+    } catch (error) {
+      console.error('Error detallado:', error);
+      setCargando(false);
+      // Mostramos el error en la pantalla
+      document.body.innerHTML += `<div style="color:red;padding:20px;">ERROR: ${error.message}</div>`;
+    }
+  };
 
-                                                                                                                                                                                          cargarNoticias();
-                                                                                                                                                                                            }, []);
+  cargarNoticias();
+}, []);
 
                                                                                                                                                                                               if (cargando) {
                                                                                                                                                                                                   return <div className="cargando">Cargando noticias que mueven el mercado...</div>;
