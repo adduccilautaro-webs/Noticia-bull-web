@@ -1,0 +1,420 @@
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.hero {
+  position: relative;
+
+  .base,
+  .framework,
+  .vite {
+    inset-inline: 0;
+    margin: 0 auto;
+  }
+
+  .base {
+    width: 170px;
+    position: relative;
+    z-index: 0;
+  }
+
+  .framework,
+  .vite {
+    position: absolute;
+  }
+
+  .framework {
+    z-index: 1;
+    top: 34px;
+    height: 28px;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
+      scale(1.4);
+  }
+
+  .vite {
+    z-index: 0;
+    top: 107px;
+    height: 26px;
+    width: auto;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
+      scale(0.8);
+  }
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+}
+
+#next-steps {
+  display: flex;
+  border-top: 1px solid var(--border);
+  text-align: left;
+
+  & > div {
+    flex: 1 1 0;
+    padding: 32px;
+    @media (max-width: 1024px) {
+      padding: 24px 20px;
+    }
+  }
+
+  .icon {
+    margin-bottom: 16px;
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+#docs {
+  border-right: 1px solid var(--border);
+
+  @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+
+  .logo {
+    height: 18px;
+  }
+
+  a {
+    color: var(--text-h);
+    font-size: 16px;
+    border-radius: 6px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+    .button-icon {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      flex: 1 1 calc(50% - 8px);
+    }
+
+    a {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+}
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
+/* Estilos generales */
+* {
+  margin: 0;
+    padding: 0;
+      box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          background: #f0f2f5;
+            line-height: 1.6;
+            }
+
+            .app {
+              max-width: 1000px;
+                margin: 0 auto;
+                  padding: 20px;
+                    min-height: 100vh;
+                      display: flex;
+                        flex-direction: column;
+                        }
+
+                        /* Encabezado */
+                        header {
+                          text-align: center;
+                            margin-bottom: 30px;
+                              padding: 20px;
+                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                  border-radius: 15px;
+                                    color: white;
+                                      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                                      }
+
+                                      header h1 {
+                                        font-size: 2rem;
+                                          margin-bottom: 10px;
+                                            display: flex;
+                                              align-items: center;
+                                                justify-content: center;
+                                                  gap: 10px;
+                                                  }
+
+                                                  header p {
+                                                    font-size: 1.1rem;
+                                                      opacity: 0.95;
+                                                      }
+
+                                                      /* Estado de carga */
+                                                      .cargando {
+                                                        text-align: center;
+                                                          font-size: 1.3rem;
+                                                            margin-top: 50px;
+                                                              color: #4a5568;
+                                                                padding: 20px;
+                                                                  background: white;
+                                                                    border-radius: 10px;
+                                                                      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                                                                      }
+
+                                                                      /* Tarjetas de noticias */
+                                                                      .noticia {
+                                                                        background: white;
+                                                                          border-radius: 12px;
+                                                                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                                                                              padding: 25px;
+                                                                                margin-bottom: 25px;
+                                                                                  transition: transform 0.2s ease, box-shadow 0.2s ease;
+                                                                                    border-left: 5px solid #4299e1;
+                                                                                    }
+
+                                                                                    .noticia:hover {
+                                                                                      transform: translateY(-3px);
+                                                                                        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+                                                                                        }
+
+                                                                                        .noticia h2 {
+                                                                                          color: #2d3748;
+                                                                                            font-size: 1.5rem;
+                                                                                              margin-bottom: 15px;
+                                                                                                padding-bottom: 10px;
+                                                                                                  border-bottom: 2px solid #e2e8f0;
+                                                                                                  }
+
+                                                                                                  .resumen {
+                                                                                                    color: #4a5568;
+                                                                                                      font-size: 1.1rem;
+                                                                                                        line-height: 1.7;
+                                                                                                          background: #f7fafc;
+                                                                                                            padding: 15px 20px;
+                                                                                                              border-radius: 8px;
+                                                                                                                margin-bottom: 20px;
+                                                                                                                  border-left: 4px solid #4299e1;
+                                                                                                                    font-style: italic;
+                                                                                                                    }
+
+                                                                                                                    /* Sección de activos */
+                                                                                                                    .activos h3 {
+                                                                                                                      color: #2d3748;
+                                                                                                                        font-size: 1.2rem;
+                                                                                                                          margin-bottom: 15px;
+                                                                                                                            display: flex;
+                                                                                                                              align-items: center;
+                                                                                                                                gap: 8px;
+                                                                                                                                }
+
+                                                                                                                                .activos h3::before {
+                                                                                                                                  content: "📊";
+                                                                                                                                    font-size: 1.3rem;
+                                                                                                                                    }
+
+                                                                                                                                    .lista-activos {
+                                                                                                                                      display: flex;
+                                                                                                                                        flex-direction: column;
+                                                                                                                                          gap: 12px;
+                                                                                                                                          }
+
+                                                                                                                                          /* Cada activo individual */
+                                                                                                                                          .activo {
+                                                                                                                                            display: grid;
+                                                                                                                                              grid-template-columns: auto 1fr auto;
+                                                                                                                                                align-items: center;
+                                                                                                                                                  gap: 12px;
+                                                                                                                                                    padding: 15px;
+                                                                                                                                                      border-radius: 8px;
+                                                                                                                                                        background: #f8fafc;
+                                                                                                                                                          border-left: 5px solid;
+                                                                                                                                                            transition: background 0.2s ease;
+                                                                                                                                                            }
+
+                                                                                                                                                            .activo:hover {
+                                                                                                                                                              background: #edf2f7;
+                                                                                                                                                              }
+
+                                                                                                                                                              /* Colores según dirección */
+                                                                                                                                                              .activo.alta {
+                                                                                                                                                                border-left-color: #48bb78;
+                                                                                                                                                                  background: #f0fff4;
+                                                                                                                                                                  }
+
+                                                                                                                                                                  .activo.baja {
+                                                                                                                                                                    border-left-color: #f56565;
+                                                                                                                                                                      background: #fff5f5;
+                                                                                                                                                                      }
+
+                                                                                                                                                                      .activo.neutral {
+                                                                                                                                                                        border-left-color: #a0aec0;
+                                                                                                                                                                          background: #f7fafc;
+                                                                                                                                                                          }
+
+                                                                                                                                                                          /* Elementos dentro de cada activo */
+                                                                                                                                                                          .ticker {
+                                                                                                                                                                            font-weight: 700;
+                                                                                                                                                                              color: #2d3748;
+                                                                                                                                                                                font-size: 1.1rem;
+                                                                                                                                                                                  min-width: 70px;
+                                                                                                                                                                                    font-family: 'Courier New', monospace;
+                                                                                                                                                                                    }
+
+                                                                                                                                                                                    .nombre {
+                                                                                                                                                                                      color: #4a5568;
+                                                                                                                                                                                        font-size: 1rem;
+                                                                                                                                                                                        }
+
+                                                                                                                                                                                        .direccion {
+                                                                                                                                                                                          font-size: 1.3rem;
+                                                                                                                                                                                            text-align: center;
+                                                                                                                                                                                              min-width: 40px;
+                                                                                                                                                                                              }
+
+                                                                                                                                                                                              .justificacion {
+                                                                                                                                                                                                grid-column: 1 / -1;
+                                                                                                                                                                                                  color: #718096;
+                                                                                                                                                                                                    font-size: 0.95rem;
+                                                                                                                                                                                                      margin-top: 8px;
+                                                                                                                                                                                                        padding-top: 8px;
+                                                                                                                                                                                                          border-top: 1px dashed #cbd5e0;
+                                                                                                                                                                                                            background: white;
+                                                                                                                                                                                                              padding: 10px;
+                                                                                                                                                                                                                border-radius: 6px;
+                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                /* Pie de página */
+                                                                                                                                                                                                                footer {
+                                                                                                                                                                                                                  margin-top: 40px;
+                                                                                                                                                                                                                    text-align: center;
+                                                                                                                                                                                                                      color: #a0aec0;
+                                                                                                                                                                                                                        font-size: 0.9rem;
+                                                                                                                                                                                                                          border-top: 1px solid #e2e8f0;
+                                                                                                                                                                                                                            padding: 20px;
+                                                                                                                                                                                                                              background: white;
+                                                                                                                                                                                                                                border-radius: 8px;
+                                                                                                                                                                                                                                  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+                                                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                                                  /* Mensaje cuando no hay noticias */
+                                                                                                                                                                                                                                  main p:only-child {
+                                                                                                                                                                                                                                    text-align: center;
+                                                                                                                                                                                                                                      color: #718096;
+                                                                                                                                                                                                                                        font-size: 1.2rem;
+                                                                                                                                                                                                                                          padding: 40px;
+                                                                                                                                                                                                                                            background: white;
+                                                                                                                                                                                                                                              border-radius: 10px;
+                                                                                                                                                                                                                                                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                                /* Responsive para móvil */
+                                                                                                                                                                                                                                                @media (max-width: 640px) {
+                                                                                                                                                                                                                                                  .app {
+                                                                                                                                                                                                                                                      padding: 10px;
+                                                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                                                          header h1 {
+                                                                                                                                                                                                                                                              font-size: 1.5rem;
+                                                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                                                  .noticia {
+                                                                                                                                                                                                                                                                      padding: 15px;
+                                                                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                                                                          .noticia h2 {
+                                                                                                                                                                                                                                                                              font-size: 1.3rem;
+                                                                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                                                                  .activo {
+                                                                                                                                                                                                                                                                                      grid-template-columns: 1fr;
+                                                                                                                                                                                                                                                                                          gap: 8px;
+                                                                                                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                                                                                                              .ticker {
+                                                                                                                                                                                                                                                                                                  min-width: auto;
+                                                                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                                                                      .direccion {
+                                                                                                                                                                                                                                                                                                          text-align: left;
+                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                            }
